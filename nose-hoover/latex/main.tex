@@ -1,0 +1,336 @@
+%!TEX root = main.tex
+
+% -----------------------------------------------------------------------------
+% Document layout standard
+%
+\documentclass[11pt, a4paper, oneside]{article}
+%\documentclass[11pt, a4paper, twoside]{article}
+
+
+% -----------------------------------------------------------------------------
+% LaTeX text output style
+%
+\usepackage[utf8]{inputenc}					% *input* encoding support
+\usepackage{fontenc}               			% *font* encoding support
+\renewcommand{\familydefault}{\rmdefault}   % font type - roman
+%\renewcommand{\familydefault}{\sfdefault}   % font type - sans serif
+%\renewcommand{\familydefault}{\ttdefault}   % font type - monospace
+\usepackage[UKenglish]{babel}				% local language support
+
+%
+% LaTeX page layout style and geometry
+%
+%\usepackage{geometry}               % manage page layouts
+%\usepackage{fancyhdr}               % caption style, headers and page styles
+%\usepackage{footnote}               % handle footnotes
+%\usepackage{setspace}               % set paragraph spacing
+%\usepackage{pdflscape}              % PDF support to the environment landscape
+
+%
+% LaTeX support for the ifdf conditional
+%
+\usepackage{ifpdf}
+
+%
+% LaTeX document cross rerefence commands
+%
+\usepackage[numbers,sort&compress]{natbib}  % bibliography manager
+\usepackage[
+	pdftex,
+	colorlinks,
+	bookmarksopen,
+	bookmarksnumbered,
+	citecolor=red,
+	urlcolor=red]{hyperref}        	% hyper reference
+
+%\ifpdf
+%\hypersetup{
+%pdftitle={Untitled},
+%pdfauthor={Unknown},
+%colorlinks=true,    				% false: boxed links; true: colored links
+%linkcolor=red,						% color of internal links
+%citecolor=red,						% color of links to bibliography
+%filecolor=magenta,          		% color of file links
+%urlcolor=cyan               		% color of external links
+%}
+%\fi
+
+%\usepackage{authblk}				% author blocks
+
+
+% -----------------------------------------------------------------------------
+% Maths packages
+%
+\usepackage{amsmath}                % amsmath package
+\usepackage{amsfonts}               % amsmath fonts
+\usepackage{amssymb}                % amsmath symbole
+\usepackage{mathrsfs}               % other mathematical symbols
+\usepackage{enumerate}              % manage enumerate lists
+\everymath{\displaystyle}
+
+%\usepackage{dsfont}                 % doublestroke math symbols
+%\usepackage{esint}                  % variable size math operators
+%\usepackage{euscript}               % Euler script symbols
+%\usepackage{textcmds}               % commands for text symbols
+
+%\usepackage[version=3]{mhchem}    	% typeset chemical formulae
+
+
+% -----------------------------------------------------------------------------
+% Graphics (Figures and Tables) packages
+%
+\usepackage{graphicx}               % manage pictures
+\usepackage{subfig}                 % subfigures and subtables within floats
+\usepackage{caption}                % figure captions
+\usepackage{floatrow}               % place a caption beside a float
+\usepackage{multirow}               % spanning rows in tables
+\usepackage{float}                  % figures with borders
+\floatstyle{plaintop}               % captions above the float (or plain, boxed, ruled)
+\restylefloat{table}                % apply the style to tables
+\usepackage[usenames]{color}        % used for font color
+\usepackage[svgnames]{xcolor}       % colors by their 'svgnames'
+
+
+% -----------------------------------------------------------------------------
+% User defined commands
+%
+% 	\newcommand defines a new command - it is an error if it is already defined.
+% 	\renewcommand redefines a predefined command - it is an error if it is not
+% 	yet defined.
+% 	\providecommand defines a new command if it isn't already defined.
+%
+% User defined equations, figures and tables.
+%
+% Long equation environment
+%
+%	\begin{widetext}
+%	$$\mbox{put long equation here}$$
+%	\end{widetext}
+%
+% Figures should be put into the text as floats.
+%
+%	\begin{figure}
+%	\includegraphics{}%
+%	\caption{\label{}}%
+%	\end{figure}
+%
+% Tables may be be put in the text as floats. Insert the column specifiers
+% (l, r, c, d, etc.) in the empty braces of the \begin{tabular}{} command.
+%
+%	\begin{table}
+%	\caption{\label{} }
+%	\begin{tabular}{}
+%	\end{tabular}
+%	\end{table}
+%
+% Reference using the \cite, \citep, \ref, and \label commands
+%
+\newcommand{\ii}{\mathrm{i}\,}                          % exponential symbol
+\newcommand{\ee}{\mathrm{e}\,}                          % exponential symbol
+\newcommand{\erf}{\mathrm{erf}\,}                       % error function
+\newcommand{\erfc}{\mathrm{erfc}\,}                     % comp error function
+\newcommand{\abs}[1]{\left|#1\right|}                   % absolute value
+\newcommand{\dd}[1]{\,\mathrm{d}#1\,}                   % integral d symbol
+
+\newcommand{\bb}[1]{\left(#1\right)}                    % normal brackets
+\newcommand{\bba}[1]{\left<#1\right>}                   % angle brackets
+\newcommand{\bbm}[1]{\left|#1\right|}                   % modulus brackets
+\newcommand{\bbs}[1]{\left[#1\right]}                   % square brackets
+\newcommand{\bbc}[1]{\left\{#1\right\}}                 % curly brackets
+
+\newcommand{\fracd}[2]{\frac{\mathrm{d}\,#1}{\mathrm{d}\,#2}}           % derivative fraction
+\newcommand{\fracp}[2]{\frac{\partial\,#1}{\partial\,#2}}               % partial fraction
+\newcommand{\fracv}[2]{\frac{\delta\,#1}{\delta\,#2}}                   % variational fraction
+\newcommand{\fracs}[2]{\left.#1\middle/#2\right.}                       % horizontal fraction
+\newcommand{\fracps}[2]{\left.\partial\,#1\middle/\partial\,#2\right.}  % horizontal partial fraction
+
+\newcommand{\lint}[2]{\int\limits_{#1}^{#2}}            % single int limits
+\newcommand{\liint}[2]{\iint\limits_{#1}^{#2}}          % double int limits
+\newcommand{\liiint}[2]{\iiint\limits_{#1}^{#2}}        % triple int limits
+\newcommand{\lsum}[2]{\sum\limits_{#1}^{#2}\,}          % single int limits
+
+\newcommand{\etal}{\textit{et al}.}                     % et al citation
+\newcommand{\fig}[1]{Fig.~\ref{#1}}                     % figure reference
+\newcommand{\Fig}[1]{Figure~\ref{#1}}                   % figure reference
+\newcommand{\eqn}[1]{Eq.~(\ref{#1})}                    % equation reference
+\newcommand{\Eqn}[1]{Equation~(\ref{#1})}               % equation reference
+\newcommand{\tab}[1]{Table~(\ref{#1})}                  % table reference
+\newcommand{\secn}[1]{Section~(\ref{#1})}               % section reference
+
+%
+% User defined colors
+%
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\cyan}[1]{\textcolor{cyan}{#1}}
+\newcommand{\yellow}[1]{\textcolor{yellow}{#1}}
+\newcommand{\magenta}[1]{\textcolor{magenta}{#1}}
+\definecolor{dblue_color}{RGB}{0,63,119}
+\newcommand{\dblue}[1]{\textcolor{dblue_color}{#1}}
+
+%
+% Keywords command
+%
+\providecommand{\keywords}[1]
+{
+  \small
+  \textbf{\textit{Keywords --}} #1
+}
+
+%
+% Email command
+%
+\providecommand{\email}[1]
+{
+  \small
+  \footnote{#1}
+}
+
+
+
+
+% -----------------------------------------------------------------------------
+%
+% Begin document
+%
+\begin{document}
+
+%
+% Document title and maketitle must precede title, authors and abstract
+%
+\title{Experiments on nonlinear dynamics and chaos}
+\date{\today}
+\maketitle     			% after title, authors, abstract and \pacs
+%\thispagestyle{empty}	% <empty, plain> do not show page numbers
+
+%
+% Document authors
+%
+\begin{center}
+\author{Carlos Correia}
+\email{ubikoo@mailfence.com}
+\end{center}
+
+%
+% Document abstract
+%
+%\begin{abstract}
+%Abstract.
+%\end{abstract}
+%\keywords{Key 1, Key 2}	% use showkeys class option if keyword
+%
+
+
+
+% -----------------------------------------------------------------------------
+% Document Body
+%
+\section{Introduction}
+\label{sec:intro}
+These notes are a research record of the computational experiments on nonlinear dynamics and chaos.
+They are mostly based on the books \textit{Nonlinear Dynamics and Chaos} by J.M.T. Thompson, H.B. Stewart~\citep{thompson2002nonlinear}.
+The other two foundational references are
+\textit{Time Reversibility, Computer Simulation, Algorithms, Chaos} by W.G. Hoover, and C.G. Hoover~\citep{hoover2012time} and \textit{Practical Numerical Algorithms for Chaotic Systems} by T.S. Parker, and L. Chua~\citep{parker2012practical}.;
+
+The notes are organised as a sparse set of self contained computational experiments.
+
+
+% -----------------------------------------------------------------------------
+% Acknowledgements
+\section{Non linear phenomena}
+\label{sec:1}
+%
+%\subsection{Undamped, unforced linear oscillator}
+%
+%\subsection{Undamped, unforced nonlinear oscillator}
+%
+%\subsection{Damped, unforced linear oscillator}
+%
+%\subsection{Damped, unforced nonlinear oscillator}
+%
+%\subsection{Forced linear oscillator}
+%
+%\subsection{Forced nonlinear linear oscillator: periodic attractors}
+%
+%\subsection{Forced nonlinear linear oscillator: chaotic attractor}
+%
+
+
+
+
+% -----------------------------------------------------------------------------
+% Acknowledgements
+%
+%\section*{Acknowledgments}
+%
+% External bibliography
+%
+\bibliographystyle{plain}	% <plain, phaip>
+\bibliography{references}
+
+% Embedded bibliography
+%
+%\bibliographystyle{plain}	% plain, phaip
+
+%%merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%%Control: key (0)
+%%Control: author (8) initials jnrlst
+%%Control: editor formatted (1) identically to author
+%%Control: production of article title (-1) disabled
+%%Control: page (0) single
+%%Control: year (1) truncated
+%%Control: production of eprint (0) enabled
+%\begin{thebibliography}{1}%
+%\makeatletter
+%\providecommand \@ifxundefined [1]{%
+% \@ifx{#1\undefined}
+%}%
+%\providecommand \@ifnum [1]{%
+% \ifnum #1\expandafter \@firstoftwo
+% \else \expandafter \@secondoftwo
+% \fi
+%}%
+%\providecommand \@ifx [1]{%
+% \ifx #1\expandafter \@firstoftwo
+% \else \expandafter \@secondoftwo
+% \fi
+%}%
+%\providecommand \natexlab [1]{#1}%
+%\providecommand \enquote  [1]{``#1''}%
+%\providecommand \bibnamefont  [1]{#1}%
+%\providecommand \bibfnamefont [1]{#1}%
+%\providecommand \citenamefont [1]{#1}%
+%\providecommand \href@noop [0]{\@secondoftwo}%
+%\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+%\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+%\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+%\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+%  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+%\providecommand \@@startlink[1]{}%
+%\providecommand \@@endlink[0]{}%
+%\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+%\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+%\providecommand \urlprefix  [0]{URL }%
+%\providecommand \Eprint [0]{\href }%
+%\providecommand \doibase [0]{http://dx.doi.org/}%
+%\providecommand \selectlanguage [0]{\@gobble}%
+%\providecommand \bibinfo  [0]{\@secondoftwo}%
+%\providecommand \bibfield  [0]{\@secondoftwo}%
+%\providecommand \translation [1]{[#1]}%
+%\providecommand \BibitemOpen [0]{}%
+%\providecommand \bibitemStop [0]{}%
+%\providecommand \bibitemNoStop [0]{.\EOS\space}%
+%\providecommand \EOS [0]{\spacefactor3000\relax}%
+%\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+%\let\auto@bib@innerbib\@empty
+%%</preamble>
+%\bibitem [{\citenamefont {Adams}(1995)}]{adams1995hitchhiker}%
+%  \BibitemOpen
+%  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {D.}~\bibnamefont
+%  {Adams}},\ }\href {http://books.google.com/books?id=W-xMPgAACAAJ} {\emph
+%  {\bibinfo {title} {The Hitchhiker's Guide to the Galaxy}}}\ (\bibinfo
+%  {publisher} {San Val},\ \bibinfo {year} {1995})\BibitemShut {NoStop}%
+%\end{thebibliography}%
+
+\end{document}

@@ -1,13 +1,18 @@
 ## Nonlinear Dynamics: Mathematical and Computational Approaches
 
-Collection of algorithms and computational experiments in nonlinear dynamics and chaos. It has been developed as part of [MOOC](https://www.complexityexplorer.org/courses/136-nonlinear-dynamics-mathematical-and-computational-approaches) __Nonlinear Dynamics: Mathematical and Computational Approaches (2021)__, led by Liz Bradley.
+Collection of algorithms and computational experiments in nonlinear dynamics and chaos. It has been developed as part of [MOOC](https://www.complexityexplorer.org/courses/136-nonlinear-dynamics-mathematical-and-computational-approaches) **Nonlinear Dynamics: Mathematical and Computational Approaches (2021)**, led by Liz Bradley.
 
-For more details, see
- - __Chaos: An Introduction to Dynamical Systems__ by _Kathleen T. Alligood, Tim D. Sauer, and James A. Yorke_
+For more details, see:
 
-- __Nonlinear dynamics and Chaos__, by _Steven Strogatz_
+ - **Chaos: An Introduction to Dynamical Systems** by *Kathleen T. Alligood, Tim D. Sauer, and James A. Yorke*
 
-- __Time Reversibility, Computer Simulation, Algorithms__, by _William G. Hoover and Carol G. Hoover_
+- **Nonlinear dynamics and Chaos**, by *Steven Strogatz*
+
+- **Time Reversibility, Computer Simulation, Algorithms**, by *William G. Hoover and Carol G. Hoover*
+
+
+### Lorenz Attractor
+
 
 ## License
 
